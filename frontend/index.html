@@ -1,0 +1,87 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy-Management-Organization</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="dark-toggle">
+      <label>Dark Mode <input type="checkbox" id="darkModeToggle"></label>
+    </div>
+    <h1>Easy-Management-Organization</h1>
+
+    <section id="employee-form">
+      <h2>Add New Employee</h2>
+      <div class="form-grid">
+        <input type="number" id="id" min="1" step="1" placeholder="Employee ID" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" required maxlength="5" />
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="text" id="role" placeholder="Role / Designation" required />
+	<input type="number" id="salary" min="0" step="0.01" placeholder="Monthly Salary" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+        <button onclick="openModal()">Add Employee</button>
+      </div>
+    </section>
+
+    <section id="filters">
+      <h2>Filter Employees</h2>
+      <div class="form-grid">
+	<input type="number" id="filter-id" min="1" step="1" placeholder="Filter by ID" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required maxlength="5" />
+        <input type="text" id="filter-name" placeholder="Filter by name" />
+        <input type="text" id="filter-role" placeholder="Filter by role" />
+        <input type="number" id="filter-min-salary" min="1" step="1" placeholder="Min salary" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+        <input type="number" id="filter-max-salary" min="1" step="1" placeholder="Max salary" oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+        <button onclick="applyFilters()">Apply Filters</button>
+        <button class="secondary" onclick="clearFilters()">Clear</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Employee List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Role</th><th>Salary</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employee-table"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div id="employeeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <p>Confirm adding this employee?</p>
+      <button onclick="addEmployee()">Yes, Add</button>
+      <button class="secondary" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+  <script src="app.js"> </script>
+  
+  <script>
+    const modal = document.getElementById("employeeModal");
+    const darkToggle = document.getElementById("darkModeToggle");
+
+    function openModal() {
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) closeModal();
+    }
+
+    darkToggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode', darkToggle.checked);
+    });
+  </script>
+</body>
+</html>
