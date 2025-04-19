@@ -36,7 +36,17 @@ This project allows users to manage employee records — including adding, editi
 ---
 
 ## 🧱 Project Structure
-payroll-web/ ├── backend/ │ ├── build/ # Build output │ ├── Crow/ # Crow (header-only web framework) │ ├── main.cpp # Backend logic │ ├── Employee.h # Employee model │ └── CMakeLists.txt # Build config ├── frontend/ │ ├── index.html # Main UI │ ├── app.js # JS logic │ └── style.css # Styling
+payroll-web/ 
+- ├── backend/ │ 
+  -  ├── build/ # Build output │ 
+  -  ├── Crow/ # Crow (header-only web framework) │ 
+  -  ├── main.cpp # Backend logic │ 
+  -  ├── Employee.h # Employee model │ 
+  -  └── CMakeLists.txt # Build config 
+- ├── frontend/ │ 
+   -  ├── index.html # Main UI │ 
+   -  ├── app.js # JS logic │ 
+   -  └── style.css # Styling
 
 
 ---
@@ -45,11 +55,11 @@ payroll-web/ ├── backend/ │ ├── build/ # Build output │ ├─�
 
 ### Common Dependencies
 
-| Library           | Description                                  | Required |
+| Library          | Description                                  | Required |
 |------------------|----------------------------------------------|----------|
 | **Crow**         | Lightweight C++ web framework (header-only)  | ✅ Yes   |
-| **Boost**        | Required by Crow                              | ✅ Yes   |
-| **nlohmann/json**| JSON library for C++                          | ✅ Yes   |
+| **Boost**        | Required by Crow                             | ✅ Yes   |
+| **nlohmann/json**| JSON library for C++                         | ✅ Yes   |
 
 ---
 
@@ -69,11 +79,11 @@ payroll-web/ ├── backend/ │ ├── build/ # Build output │ ├─�
 
 ## Windows Installation
 ### 1. Install Tools
-CMake
-Visual Studio with C++ build tools
-Boost
-Crow (clone manually)
-nlohmann/json
+- CMake
+- Visual Studio with C++ build tools
+- Boost
+- Crow (clone manually)
+- nlohmann/json
 
 ### 💡 You can also use vcpkg:
 
@@ -85,24 +95,27 @@ nlohmann/json
       .\bash.bat
 
 ## 🌐 Frontend Usage
-No installation needed.
-Just open frontend/index.html in your browser.
-Ensure backend is running on: http://localhost:18080
+- No installation needed.
+- Just open frontend/index.html in your browser.
+- Ensure backend is running on: http://localhost:18080
 
-## 📷 Screenshots
+## 📷 Screenshot
+
 ### 💻 UI (Add/Edit/Delete Employee)
+
+![Demo Screenshot](https://github.com/pandeyom331/Easy-Management-Organization/blob/main/Demo.jpeg?raw=true)
 
 
 ## 🧾 Notes
-The backend uses a employees.json file to store data persistently.
-CORS headers are enabled to allow frontend requests.
-Port: 18080 (you can change this in main.cpp if needed)
+- The backend uses a employees.json file to store data persistently.
+- CORS headers are enabled to allow frontend requests.
+- Port: 18080 (you can change this in main.cpp if needed)
 
 ## 🔮 Future Ideas
-Integrate with an actual database (MySQL, SQLite)
-Export/Import CSV support
-Authentication system
-Salary analytics dashboard
+- Integrate with an actual database (MySQL, SQLite)
+- Export/Import CSV support
+- Authentication system
+- Salary analytics dashboard
 
 ## 📬 Author
 Built with ❤️ using C++ & JavaScript.
